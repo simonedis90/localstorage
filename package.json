@@ -1,8 +1,8 @@
 {
-  "name": "localstorage",
+  "name": "data-storage",
   "version": "1.0.1",
-  "description": "simple decorators to handle localstorage",
-  "main": "localstorage.js",
+  "description": "simple decorators to handle localstorage and sessionStorage",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

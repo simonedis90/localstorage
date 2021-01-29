@@ -1,1 +1,1 @@
-export {LocalStorage} from './localstorage'
+export {LocalStorage, SessionStorage} from './data'

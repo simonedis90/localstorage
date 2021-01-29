@@ -14,6 +14,7 @@ function LocalStorage(localstorageKey, cacheTime, convert) {
         props.set = function (value) {
             if (value === null || value === undefined) {
                 localStorage.removeItem(localstorageKey);
+                return;
             }
             localStorage.setItem(localstorageKey, JSON.stringify({
                 value: value,

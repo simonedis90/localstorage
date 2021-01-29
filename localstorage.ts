@@ -14,6 +14,7 @@ export function LocalStorage<T2>(
             props.set = (value: any) => {
                 if(value === null || value === undefined){
                     localStorage.removeItem(localstorageKey);
+                    return;
                 }
                 localStorage.setItem(localstorageKey, JSON.stringify({
                     value,

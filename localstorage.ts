@@ -26,15 +26,23 @@ export function LocalStorage<T2>(
                 
                 if(store){
 
-                    const parsed = JSON.parse(store);
-                    const value = parsed.value;
-                    const cacheTime_ = parsed.cacheTime;
-                    if(cacheTime_ && parsed.storedAt < new Date().getTime()) {
+                    try {
+                        const parsed = JSON.parse(store);
+                        const value = parsed.value;
+                        const cacheTime_ = parsed.cacheTime;
+                        if(cacheTime_ && parsed.storedAt < new Date().getTime()) {
+                            localStorage.removeItem(localstorageKey);
+                            return null;
+                        }
+
+                        return convert(value);
+
+                    } catch (erro) {
                         localStorage.removeItem(localstorageKey);
-                        return null;
+                        return null
+                        //throw {msg: 'DATA IMPROPERLY STORED'};
                     }
 
-                    return convert(value);
                 }
                 return null;
             }

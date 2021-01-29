@@ -24,14 +24,21 @@ function LocalStorage(localstorageKey, cacheTime, convert) {
         props.get = function () {
             var store = localStorage.getItem(localstorageKey);
             if (store) {
-                var parsed = JSON.parse(store);
-                var value = parsed.value;
-                var cacheTime_ = parsed.cacheTime;
-                if (cacheTime_ && parsed.storedAt < new Date().getTime()) {
+                try {
+                    var parsed = JSON.parse(store);
+                    var value = parsed.value;
+                    var cacheTime_ = parsed.cacheTime;
+                    if (cacheTime_ && parsed.storedAt < new Date().getTime()) {
+                        localStorage.removeItem(localstorageKey);
+                        return null;
+                    }
+                    return convert(value);
+                }
+                catch (erro) {
                     localStorage.removeItem(localstorageKey);
                     return null;
+                    //throw {msg: 'DATA IMPROPERLY STORED'};
                 }
-                return convert(value);
             }
             return null;
         };

@@ -12,6 +12,9 @@ export function LocalStorage<T2>(
     return (target: any, propertyKey: string) => {
         const props: PropertyDescriptor = {};
             props.set = (value: any) => {
+                if(value === null || value === undefined){
+                    localStorage.removeItem(localstorageKey);
+                }
                 localStorage.setItem(localstorageKey, JSON.stringify({
                     value,
                     cacheTime,

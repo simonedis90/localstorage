@@ -1,0 +1,19 @@
+{
+  "name": "localstorage",
+  "version": "1.0.0",
+  "description": "simple decorators to handle localstorage",
+  "main": "localstorage.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonedis90/localstorage.git"
+  },
+  "author": "simone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simonedis90/localstorage/issues"
+  },
+  "homepage": "https://github.com/simonedis90/localstorage#readme"
+}

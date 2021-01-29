@@ -4,7 +4,7 @@
  * @param cacheTime milliseconds of cache time
  * @param convert function to convert stored item
  */
-function LocalStorage<T2>(
+export function LocalStorage<T2>(
     localstorageKey: string,
     cacheTime: number = 0,
     convert: (value: T2) => T2 = (value) => value) {
